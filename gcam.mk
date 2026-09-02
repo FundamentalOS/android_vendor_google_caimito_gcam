@@ -6,8 +6,12 @@
 gcam_src := vendor/google/caimito_gcam/proprietary/product/app/GoogleCamera
 gcam_dst := $(TARGET_COPY_OUT_PRODUCT)/app/GoogleCamera
 
+# The base APK is the GoogleCamera Soong module (Android.bp), which also overrides the AOSP
+# Camera2 app; only the split APKs are copied next to it here.
+PRODUCT_PACKAGES += \
+    GoogleCamera
+
 PRODUCT_COPY_FILES += \
-    $(gcam_src)/base.apk:$(gcam_dst)/base.apk \
     $(gcam_src)/split_all_in_feature_module_p24.apk:$(gcam_dst)/split_all_in_feature_module_p24.apk \
     $(gcam_src)/split_camera_vkp_asset_module.apk:$(gcam_dst)/split_camera_vkp_asset_module.apk \
     $(gcam_src)/split_deeprestore_split_module_p24.apk:$(gcam_dst)/split_deeprestore_split_module_p24.apk \

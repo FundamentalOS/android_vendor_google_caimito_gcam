@@ -1,0 +1,18 @@
+// Google Camera (GCam) for the Pixel 9 family, shipped presigned so Play can update it.
+//
+// The base APK is a Soong module so that it can carry overrides: the AOSP Camera2 app is
+// added to every handheld product by build/make and only disappears when another camera
+// app overrides it (Aperture does so on the other devices). The split APKs are copied
+// next to it by gcam.mk; PackageManager loads every APK in the directory as one package.
+android_app_import {
+    name: "GoogleCamera",
+    apk: "proprietary/product/app/GoogleCamera/base.apk",
+    presigned: true,
+    // Keep the Google-signed APK byte for byte: no zipalign / native lib extraction pass.
+    preprocessed: true,
+    product_specific: true,
+    dex_preopt: {
+        enabled: false,
+    },
+    overrides: ["Camera2"],
+}
