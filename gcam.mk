@@ -3,7 +3,7 @@
 # Google signature (Play can still update it) and every feature module.
 # Device-bound: inherited from device/google/caimito/device-<codename>.mk.
 
-gcam_src := vendor/google/caimito_gcam/proprietary/product/app/GoogleCamera
+gcam_src := vendor/google/caimito/gcam/proprietary/product/app/GoogleCamera
 gcam_dst := $(TARGET_COPY_OUT_PRODUCT)/app/GoogleCamera
 
 # The base APK is the GoogleCamera Soong module (Android.bp), which also overrides the AOSP
